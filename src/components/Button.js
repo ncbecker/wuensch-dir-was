@@ -11,19 +11,19 @@ const Button = styled.button`
   width: 48px;
   height: 48px;
   cursor: pointer;
-  /* position: absolute;
+  position: absolute;
   bottom: 5px;
-  right: 5px; */
+  right: 5px;
 `;
 
 export default Button;
 
-export function ButtonAdd({ text }) {
-  return <Button>{text}</Button>;
+export function ButtonAdd({ btntext }) {
+  return <Button>{btntext}</Button>;
 }
 
 ButtonAdd.propTypes = {
-  text: PropTypes.string.isRequired,
+  btntext: PropTypes.string.isRequired,
 };
 
 // Button.propTypes = {
