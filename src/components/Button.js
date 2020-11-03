@@ -10,18 +10,20 @@ const Button = styled.button`
   font-size: 2.5rem;
   width: 48px;
   height: 48px;
-  line-height: 1;
   cursor: pointer;
+  /* position: absolute;
+  bottom: 5px;
+  right: 5px; */
 `;
 
 export default Button;
 
-export function ButtonAdd({ title }) {
-  return <Button>{title}</Button>;
+export function ButtonAdd({ text }) {
+  return <Button>{text}</Button>;
 }
 
 ButtonAdd.propTypes = {
-  title: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 // Button.propTypes = {
