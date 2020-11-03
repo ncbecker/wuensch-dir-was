@@ -10,7 +10,7 @@ function App() {
       <GlobalStyle />
       <Switch>
         <Route exact path="/">
-          <Welcome title="Nicolas" btntext="+" />
+          <Welcome title="Nicolas" goAdd="/add" goWishList="/wishlist" />
         </Route>
         <Route exact path="/add">
           <Add />
