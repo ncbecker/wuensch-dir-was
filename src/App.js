@@ -9,7 +9,7 @@ function App() {
     <Router>
       <GlobalStyle />
       <Switch>
-        <Route path="/wishlist/:name">
+        <Route path="/wishlist/:id">
           <WishList />
         </Route>
         <Route exact path="/add">

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
-import PropTypes from 'prop-types';
 import WishListItem from '../components/WishListItem';
 import { NavLinkAdd } from '../components/NavLink';
+import { getLists } from '../components/json-server/lists';
 
 const ContainerWelcome = styled.div`
   display: flex;
@@ -16,10 +16,18 @@ const ContainerWelcome = styled.div`
 `;
 
 function Welcome() {
+  const [lists, setLists] = useState(null);
+
+  useEffect(async () => {
+    const newLists = await getLists();
+    setLists(newLists);
+  }, []);
+
   return (
     <ContainerWelcome>
-      <WishListItem title="User3" />
-      <WishListItem title="User2" />
+      {lists?.map((list) => (
+        <WishListItem key={list.id} id={list.id} title={list.title} />
+      ))}
       <NavLinkAdd goAdd="/add">
         <svg
           xmlns="http://www.w3.org/2000/svg"

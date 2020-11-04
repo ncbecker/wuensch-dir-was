@@ -12,14 +12,15 @@ const Container = styled.div`
   box-shadow: 0 10px 20px lightblue;
 `;
 
-export default function WishListItem({ title }) {
+export default function WishListItem({ id, title }) {
   return (
-    <Link to={`/wishlist/${title}`}>
+    <Link to={`/wishlist/${id}`}>
       <Container>{title}</Container>
     </Link>
   );
 }
 
 WishListItem.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
 };

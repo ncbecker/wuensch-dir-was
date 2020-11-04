@@ -8,9 +8,9 @@ const ContainerWishList = styled.div`
 `;
 
 function WishList() {
-  const { name } = useParams();
+  const { id } = useParams();
 
-  return <ContainerWishList>WishList {name}</ContainerWishList>;
+  return <ContainerWishList>WishList {id}</ContainerWishList>;
 }
 
 export default WishList;
