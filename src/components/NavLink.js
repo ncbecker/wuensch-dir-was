@@ -12,7 +12,7 @@ const NavLink = styled.div`
   width: 48px;
   height: 48px;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   bottom: 5px;
   right: 5px;
   svg {

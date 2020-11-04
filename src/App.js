@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyle from './GlobalStyle';
 import Add from './pages/Add';
 import Welcome from './pages/Welcome';
@@ -9,14 +9,14 @@ function App() {
     <Router>
       <GlobalStyle />
       <Switch>
-        <Route exact path="/">
-          <Welcome title="Nicolas" goAdd="/add" goWishList="/wishlist" />
+        <Route path="/wishlist/:name">
+          <WishList />
         </Route>
         <Route exact path="/add">
           <Add />
         </Route>
-        <Route exact path="/wishlist">
-          <WishList />
+        <Route exact path="/">
+          <Welcome />
         </Route>
       </Switch>
     </Router>

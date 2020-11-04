@@ -7,17 +7,20 @@ import { NavLinkAdd } from '../components/NavLink';
 const ContainerWelcome = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   a {
     color: black;
     text-decoration: none;
   }
 `;
 
-function Welcome({ title, goAdd, goWishList }) {
+function Welcome() {
   return (
     <ContainerWelcome>
-      <WishListItem title={title} goWishList={goWishList} />
-      <NavLinkAdd goAdd={goAdd}>
+      <WishListItem title="User3" />
+      <WishListItem title="User2" />
+      <NavLinkAdd goAdd="/add">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="24"
@@ -32,6 +35,11 @@ function Welcome({ title, goAdd, goWishList }) {
   );
 }
 
+// Welcome.propTypes = {
+//   title: PropTypes.string.isRequired,
+//   goWishList: PropTypes.string.isRequired,
+// };
+
 // const Welcome = ({ title, btntext }) => (
 //   <ContainerWelcome>
 //     <Link to="/wishlist">
@@ -42,11 +50,5 @@ function Welcome({ title, goAdd, goWishList }) {
 //     </Link>
 //   </ContainerWelcome>
 // );
-
-Welcome.propTypes = {
-  title: PropTypes.string.isRequired,
-  goAdd: PropTypes.string.isRequired,
-  goWishList: PropTypes.string.isRequired,
-};
 
 export default Welcome;
