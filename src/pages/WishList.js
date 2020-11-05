@@ -43,7 +43,7 @@ function WishList() {
 
   return (
     <ContainerWishList>
-      {list.title}
+      <h3>{list.title}</h3>
       <div>
         {list.items.map((item) => (
           <Item key={item}>{item}</Item>

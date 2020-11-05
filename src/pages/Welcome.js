@@ -25,6 +25,7 @@ function Welcome() {
 
   return (
     <ContainerWelcome>
+      <h3>My Wishlists</h3>
       {lists?.map((list) => (
         <WishListItem key={list.id} id={list.id} title={list.title} />
       ))}
