@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components/macro';
-import { getListById } from '../components/json-server/lists';
+import { BtnDelete } from '../components/Button';
+import { getListById, deleteListById } from '../components/json-server/lists';
 import { NavLinkAdd, NavLinkHomeBtn } from '../components/NavLink';
 
 const ContainerWishList = styled.div`
@@ -23,7 +24,7 @@ const Item = styled.div`
 
 function WishList() {
   const { id } = useParams();
-
+  const history = useHistory();
   const [list, setList] = useState(null);
 
   useEffect(async () => {
@@ -35,6 +36,11 @@ function WishList() {
     return <div>Loading...</div>;
   }
 
+  const handleDelete = async () => {
+    await deleteListById(id);
+    history.push('/');
+  };
+
   return (
     <ContainerWishList>
       {list.title}
@@ -44,6 +50,7 @@ function WishList() {
         ))}
       </div>
       <NavLinkHomeBtn goHome="/" />
+      <BtnDelete onClick={handleDelete} />
       <NavLinkAdd goAdd="/add">
         <svg
           xmlns="http://www.w3.org/2000/svg"
