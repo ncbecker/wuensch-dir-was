@@ -10,30 +10,46 @@ const ContainerAdd = styled.div`
   flex-direction: column;
 `;
 
+const ContainerForm = styled.div`
+  input {
+    margin: 10px;
+  }
+`;
+
 function Add() {
-  const [value, setValue] = useState('');
+  const [listTitle, setListTitle] = useState('');
+  const [loading, setLoading] = useState(false);
+  // const [errorMessage, setErrorMessage] = useState(null);
 
   function handleChange(event) {
-    setValue(event.target.value);
+    setListTitle(event.target.value);
   }
 
   async function handleSubmit(event) {
-    const newList = { title: value, items: [] };
+    setLoading(true);
+    const newList = { title: listTitle, items: ['Bier', 'Koks'] };
     await postList(newList);
     event.preventDefault();
-    setValue('');
+    setListTitle('');
+    setLoading(false);
   }
 
   return (
     <ContainerAdd>
       <h3>Add a new wishlist!</h3>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={value} onChange={handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <ContainerForm>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Name"
+            value={listTitle}
+            onChange={handleChange}
+            required
+          />
+          <input type="submit" value="Submit" />
+        </form>
+      </ContainerForm>
+      {loading && <div>Loading...</div>}
       <NavLinkHomeBtn goHome="/" />
     </ContainerAdd>
   );
