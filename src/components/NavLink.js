@@ -13,8 +13,24 @@ const NavLink = styled.div`
   height: 48px;
   cursor: pointer;
   position: fixed;
-  bottom: 5px;
-  right: 5px;
+  bottom: 15px;
+  right: 15px;
+  svg {
+    fill: white;
+  }
+`;
+const NavLinkHome = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: lightblue;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
   svg {
     fill: white;
   }
@@ -33,6 +49,28 @@ export function NavLinkAdd({ goAdd, children }) {
 NavLinkAdd.propTypes = {
   goAdd: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+};
+
+export function NavLinkHomeBtn({ goHome }) {
+  return (
+    <Link to={goHome}>
+      <NavLinkHome>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </svg>
+      </NavLinkHome>
+    </Link>
+  );
+}
+
+NavLinkHomeBtn.propTypes = {
+  goHome: PropTypes.string.isRequired,
 };
 
 // Button.propTypes = {

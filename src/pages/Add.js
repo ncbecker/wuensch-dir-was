@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { NavLinkHomeBtn } from '../components/NavLink';
 
 const ContainerAdd = styled.div`
   display: flex;
@@ -7,7 +8,12 @@ const ContainerAdd = styled.div`
 `;
 
 function Add() {
-  return <ContainerAdd>Add page</ContainerAdd>;
+  return (
+    <ContainerAdd>
+      <NavLinkHomeBtn goHome="/" />
+      Add page
+    </ContainerAdd>
+  );
 }
 
 export default Add;

@@ -1,8 +1,8 @@
 {
   "lists": [
-    { "id": 1, "title": "Philipp's List" },
-    { "id": 2, "title": "Leon's List" },
-    { "id": 3, "title": "Caro's List" },
-    { "id": 4, "title": "Opa's List" }
+    { "id": 1, "title": "Philipp's Wishlist", "items": ["Socken", "Pullover"] },
+    { "id": 2, "title": "Leon's Wishlist", "items": ["Schuhe", "Hose"] },
+    { "id": 3, "title": "Caro's Wishlist", "items": ["T-Shirt", "Mütze"] },
+    { "id": 4, "title": "Opa's Wishlist", "items": ["Jacke", "Schal"] }
   ]
 }
