@@ -6,6 +6,8 @@ import { NavLinkHomeBtn } from '../components/NavLink';
 const ContainerAdd = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 function Add() {
@@ -24,6 +26,7 @@ function Add() {
 
   return (
     <ContainerAdd>
+      <h3>Add a new wishlist!</h3>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -32,7 +35,6 @@ function Add() {
         <input type="submit" value="Submit" />
       </form>
       <NavLinkHomeBtn goHome="/" />
-      Add page
     </ContainerAdd>
   );
 }
