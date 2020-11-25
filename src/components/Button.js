@@ -1,91 +1,66 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components/macro';
+// import PropTypes from 'prop-types';
+import styled from 'styled-components/macro';
 
-const primaryMixin = css`
-  color: white;
-  background-color: #1ea7fd;
-`;
-
-const secondaryMixin = css`
-  color: #333;
-  background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-`;
-
-const sizes = {
-  small: css`
-    font-size: 12px;
-    padding: 10px 16px;
-  `,
-  medium: css`
-    font-size: 14px;
-    padding: 11px 20px;
-  `,
-  large: css`
-    font-size: 16px;
-    padding: 12px 24px;
-  `,
-};
-
-const StorybookButton = styled.button`
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
-  border: 0;
-  border-radius: 3em;
+const Button = styled.button`
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-
-  ${(props) => (props.primary ? primaryMixin : secondaryMixin)};
-  ${(props) => sizes[props.size]};
+  position: fixed;
+  bottom: 15px;
+  svg {
+    fill: red;
+    width: 36px;
+    height: 36px;
+  }
 `;
-
-/**
- * Primary UI component for user interaction
- */
-const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  return (
-    <StorybookButton
-      type="button"
-      primary={primary}
-      size={size}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
-    >
-      {label}
-    </StorybookButton>
-  );
-};
-
-Button.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
-  backgroundColor: PropTypes.string,
-  /**
-   * How large should the button be?
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /**
-   * Button contents
-   */
-  label: PropTypes.string.isRequired,
-  /**
-   * Optional click handler
-   */
-  onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: 'medium',
-  onClick: undefined,
-};
 
 export default Button;
+
+export function BtnDelete(props) {
+  return (
+    <Button {...props}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path d="M0 0h24v24H0z" fill="none" />
+        <path d="M0 0h24v24H0V0z" fill="none" />
+        <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z" />
+      </svg>
+    </Button>
+  );
+}
+
+Button.defaultProps = {
+  type: 'button',
+};
+
+// Button.propTypes = {
+//   /**
+//    * Is this the principal call to action on the page?
+//    */
+//   primary: PropTypes.bool,
+//   /**
+//    * What background color to use
+//    */
+//   backgroundColor: PropTypes.string,
+//   /**
+//    * How large should the button be?
+//    */
+//   size: PropTypes.oneOf(['small', 'medium', 'large']),
+//   /**
+//    * Button contents
+//    */
+//   label: PropTypes.string.isRequired,
+//   /**
+//    * Button contents
+//    */
+//   title: PropTypes.string.isRequired,
+//   /**
+//    * Optional click handler
+//    */
+//   onClick: PropTypes.func,
+// };
